@@ -13,6 +13,8 @@ import FlatlistProduct from './component/FlatlistProduct';
 import Slider from './component/Slider';
 import Review from './component/Review';
 import DealProduct from './component/DealProduct';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import SearchBar from './component/SearchBar';
 
 export type RootStackPramList = {
   Home: undefined;
@@ -25,21 +27,28 @@ export type RootStackPramList = {
   Slider: undefined;
   Review: {id: string};
   Deal: undefined;
+  Search: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
 
 export default function App() {
+
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{
+          options={({navigation})=>({
             title: 'Trending Product',
             headerBackButtonMenuEnabled: false,
-          }}
+            headerRight: ()=>(
+              <FontAwesome name='search' size={25} color={"black"} 
+              onPress={()=>navigation.navigate("Search")}   />
+            )
+          })}
         />
         <Stack.Screen
           name="Details"
@@ -59,6 +68,7 @@ export default function App() {
         <Stack.Screen name="Review" component={Review} />
         <Stack.Screen name="Slider" component={Slider} options={{headerShown:false}} />
         <Stack.Screen name="Deal" component={DealProduct} options={{headerShown:true}} />
+        <Stack.Screen name="Search" component={SearchBar} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

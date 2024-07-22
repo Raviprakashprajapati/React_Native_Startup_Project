@@ -48,8 +48,6 @@ export default function Login({navigation}) {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
 
-  
-
   const handleGoogleLogin = async () => {
     setLoading(true);
     try {
@@ -77,10 +75,10 @@ export default function Login({navigation}) {
     try {
       await GoogleSignin.signOut();
       // console.warn('Logout');
-      setUser(null)
+      setUser(null);
     } catch (error) {
       console.log('Google Sign-Out Error: ', error);
-      setUser(null)
+      setUser(null);
     }
   }
 
@@ -133,16 +131,28 @@ export default function Login({navigation}) {
 
             {/*google login  */}
             <View>
-              <Pressable
-                onPress={handleGoogleLogin}
-                style={styles.googleButton}>
-                <Text style={styles.googleButtonText}>Sign in with Google</Text>
-              </Pressable>
+              {!user ? (
+                <Pressable
+                  onPress={handleGoogleLogin}
+                  style={styles.googleButton}>
+                  <Text style={styles.googleButtonText}>
+                    Sign in with Google
+                  </Text>
+                </Pressable>
+              ) : null}
               {user && (
                 <View style={styles.userInfo}>
                   <Image style={styles.userImage} source={{uri: user?.photo}} />
                   <Text style={styles.userName}>{user?.name}</Text>
-                  <Text onPress={handleGoogleLogout} style={{backgroundColor:"#b50909",color:"white",padding:6}} >Logout</Text>
+                  <Text
+                    onPress={handleGoogleLogout}
+                    style={{
+                      backgroundColor: '#b50909',
+                      color: 'white',
+                      padding: 6,
+                    }}>
+                    Logout
+                  </Text>
                 </View>
               )}
             </View>
