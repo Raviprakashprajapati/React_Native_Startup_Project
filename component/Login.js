@@ -14,6 +14,8 @@ import * as Yup from 'yup';
 import {Formik} from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import OfferCard from './OfferCard';
+import DailogBox from './DailogBox';
 
 GoogleSignin.configure({
   webClientId:
@@ -85,7 +87,7 @@ export default function Login({navigation}) {
   const saveData = async values => {
     try {
       await AsyncStorage.setItem('user', JSON.stringify(values));
-      navigation.navigate('Home');
+      navigation.navigate('HomeStack');
     } catch (error) {
       console.warn('Error saving data:', error);
     }
@@ -159,7 +161,7 @@ export default function Login({navigation}) {
 
             <Text
               style={styles.registerButton}
-              onPress={() => navigation.navigate('Register')}>
+              onPress={() => navigation.navigate('Signup')}>
               Register yourself...
             </Text>
           </View>

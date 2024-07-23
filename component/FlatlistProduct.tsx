@@ -83,16 +83,16 @@ export default function FlatlistProduct({navigation}: FlatListProps) {
                     style={{height: 110, width: 80, resizeMode: 'contain'}}
                   />
                   <View>
-                    <Text style={{color: 'white',marginBottom:5,backgroundColor:"#10b1c9",padding:7,borderRadius:5,fontSize:12,fontWeight:"700",textAlign:"center"}}  >
+                    <Text style={{color: 'white',marginBottom:5,backgroundColor:"black",padding:7,borderRadius:5,fontSize:12,fontWeight:"700",textAlign:"center"}}  >
                       Price : {item?.product_original_price}
                     </Text>
-                    <Text style={{color: 'white',marginBottom:5,backgroundColor:"#10b1c9",padding:7,borderRadius:5,fontSize:12,fontWeight:"700",textAlign:"center"}} > Rating : {item?.product_star_rating}</Text>
+                    <Text style={{color: 'white',marginBottom:5,backgroundColor:"black",padding:7,borderRadius:5,fontSize:12,fontWeight:"700",textAlign:"center"}} > Rating : {item?.product_star_rating}</Text>
                   </View>
                 </View>
                 <Text style={{color: 'black', fontSize: 12, marginTop: 5,}}>
                   {item?.product_title}
                 </Text>
-                <Text style={{backgroundColor:"#1a97ab" ,padding:5,marginHorizontal:10,textAlign:"center",marginTop:10, borderRadius:30,color:"white" }} onPress={()=>navigation.navigate("Review",{id:item.asin})} >Review</Text>
+                <Text style={{backgroundColor:"black" ,padding:5,marginHorizontal:10,textAlign:"center",marginTop:10, borderRadius:30,color:"white" }} onPress={()=>navigation.navigate("Review",{id:item.asin})} >Review</Text>
               </Pressable>
             )}
           />

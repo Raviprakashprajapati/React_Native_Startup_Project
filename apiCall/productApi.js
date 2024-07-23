@@ -1166,6 +1166,946 @@ const deals = [
   },
 ];
 
+const bestSeller = [
+  {
+    rank: 1,
+    asin: 'B09H7GPR1G',
+    product_title:
+      'Microsoft Office Home & Student 2021 | Classic Apps: Word, Excel, PowerPoint | One-Time purchase for 1 PC/MAC | Instant Downl',
+    product_price: '$149.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 5805,
+    product_url: 'https://www.amazon.com/dp/B09H7GPR1G',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/610LdTvXyFL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 2,
+    asin: 'B07Q33SJDW',
+    product_title:
+      'Norton 360 Deluxe 2024, Antivirus software for 5 Devices with Auto Renewal - Includes VPN, PC Cloud Backup & Dark Web Monitor',
+    product_price: '$24.99',
+    product_star_rating: '4.2',
+    product_num_ratings: 14766,
+    product_url: 'https://www.amazon.com/dp/B07Q33SJDW',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71XafXsPo6L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 3,
+    asin: 'B0823GT5JG',
+    product_title: 'iFit Train - Monthly Membership',
+    product_price: '$15.00',
+    product_star_rating: '4.1',
+    product_num_ratings: 543,
+    product_url: 'https://www.amazon.com/dp/B0823GT5JG',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/518nPPYk0iL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 4,
+    asin: 'B07K98XDX8',
+    product_title:
+      'McAfee Total Protection 2024 | 3 Device | Cybersecurity Software Includes Antivirus, Secure VPN, Password Manager, Dark Web M',
+    product_price: '$19.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 4778,
+    product_url: 'https://www.amazon.com/dp/B07K98XDX8',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61fF1k90QgL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 5,
+    asin: 'B07CYFFH4H',
+    product_title:
+      'Bitdefender Total Security - 5 Devices | 1 year Subscription | PC/Mac | Activation Code by email',
+    product_price: '$44.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 2243,
+    product_url: 'https://www.amazon.com/dp/B07CYFFH4H',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/714clBtOSiL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 6,
+    asin: 'B09MYJ1R6L',
+    product_title:
+      'Microsoft System Builder | Windоws 11 Home | Intended use for new systems | Install on a new PC | Branded by Microsoft',
+    product_price: '$119.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 1284,
+    product_url: 'https://www.amazon.com/dp/B09MYJ1R6L',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61JfosHunyL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 7,
+    asin: 'B07Q6B5YL5',
+    product_title:
+      'Norton 360 Premium 2024, Antivirus software for 10 Devices with Auto Renewal - Includes VPN, PC Cloud Backup & Dark Web Monit',
+    product_price: '$29.99',
+    product_star_rating: '4.2',
+    product_num_ratings: 4682,
+    product_url: 'https://www.amazon.com/dp/B07Q6B5YL5',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71q3Z-U+2xL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 8,
+    asin: 'B09C1RQQ2Z',
+    product_title:
+      'Norton 360 for Amazon 2024, Antivirus software for up to 5 Devices with Auto Renewal [Subscription]',
+    product_price: '$34.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 435,
+    product_url: 'https://www.amazon.com/dp/B09C1RQQ2Z',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/710R2j7jEQL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 9,
+    asin: 'B0BB2N69J8',
+    product_title:
+      'McAfee Total Protection 2024 | 3 Device | Cybersecurity Software Includes Antivirus, Secure VPN, Password Manager, Dark Web M',
+    product_price: '$19.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 4778,
+    product_url: 'https://www.amazon.com/dp/B0BB2N69J8',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61Xnk7S9JrL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 10,
+    asin: 'B07K98LLVV',
+    product_title:
+      'McAfee Total Protection 2024 | 5 Device | Cybersecurity Software Includes Antivirus, Secure VPN, Password Manager, Dark Web M',
+    product_price: '$24.99',
+    product_star_rating: '4.2',
+    product_num_ratings: 1098,
+    product_url: 'https://www.amazon.com/dp/B07K98LLVV',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61+NzthenlL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 11,
+    asin: 'B07F3TQ6DQ',
+    product_title:
+      'Microsoft 365 Personal | 12-Month Subscription, 1 person | Word, Excel, PowerPoint | 1TB OneDrive cloud storage | PC/Mac Inst',
+    product_price: '$69.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 10776,
+    product_url: 'https://www.amazon.com/dp/B07F3TQ6DQ',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61pCCojbi-L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 12,
+    asin: 'B09WCTTXQ6',
+    product_title:
+      'Windows 11 Pro Upgrade, from Windows 11 Home (Digital Download)',
+    product_price: '$99.00',
+    product_star_rating: '3.9',
+    product_num_ratings: 491,
+    product_url: 'https://www.amazon.com/dp/B09WCTTXQ6',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61R6ivLSfrL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 13,
+    asin: 'B0CLBV27N2',
+    product_title:
+      'TurboTax Deluxe 2023 Tax Software, Federal & State Tax Return [Amazon Exclusive] [PC/Mac Download]',
+    product_price: '$69.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 14212,
+    product_url: 'https://www.amazon.com/dp/B0CLBV27N2',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/719rCYQpjdL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 14,
+    asin: 'B09H7F77JR',
+    product_title:
+      'Microsoft Office Home & Business 2021 | Word, Excel, PowerPoint, Outlook | One-time purchase for 1 PC or Mac | Instant Downlo',
+    product_price: '$229.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 813,
+    product_url: 'https://www.amazon.com/dp/B09H7F77JR',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61hSSVPvT3L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 15,
+    asin: 'B09VLYKW94',
+    product_title:
+      'Norton Utilities Ultimate – cleans and speeds up your PC, Windows PCs only [Download]',
+    product_price: '$19.99',
+    product_star_rating: '4.2',
+    product_num_ratings: 555,
+    product_url: 'https://www.amazon.com/dp/B09VLYKW94',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61zuLMONS9L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 16,
+    asin: 'B0BZ2K72LD',
+    product_title:
+      'McAfee Total Protection 2024 Ready | 3 Devices | 15 Month Subscription | Cybersecurity software includes Antivirus, Secure VP',
+    product_price: '$21.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 242,
+    product_url: 'https://www.amazon.com/dp/B0BZ2K72LD',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61gAXg9bfCL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 17,
+    asin: 'B0BB2N2YQ9',
+    product_title:
+      'McAfee AntiVirus Protection 2024 | 1 PC (Windows)| Cybersecurity software includes Antivirus Protection, Internet Security So',
+    product_price: '$9.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 707,
+    product_url: 'https://www.amazon.com/dp/B0BB2N2YQ9',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61Iy7n2u-jL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 18,
+    asin: 'B0CLC5MKTP',
+    product_title:
+      'TurboTax Home & Business 2023 Tax Software, Federal & State Tax Return [Amazon Exclusive] [PC/Mac Download]',
+    product_price: '$119.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 4102,
+    product_url: 'https://www.amazon.com/dp/B0CLC5MKTP',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71K4wikrrkL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 19,
+    asin: 'B07DDNL2BJ',
+    product_title:
+      'Webroot Antivirus Software 2024 | 3 Device | 1 Year Download for PC/Mac',
+    product_price: '$15.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 2861,
+    product_url: 'https://www.amazon.com/dp/B07DDNL2BJ',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51gkAQmNelL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 20,
+    asin: 'B07QCVZW81',
+    product_title:
+      'Norton 360 Premium 2024, Antivirus software for 10 Devices with Auto Renewal - Includes VPN, PC Cloud Backup & Dark Web Monit',
+    product_price: '$29.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 6460,
+    product_url: 'https://www.amazon.com/dp/B07QCVZW81',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71+0sewCxOL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 21,
+    asin: 'B07Q6ZPC1Q',
+    product_title:
+      'Adobe Acrobat Professional DC | Create, edit and sign PDF documents | 1-month Subscription with auto-renewal, PC/Mac',
+    product_price: '$29.99',
+    product_star_rating: '3.9',
+    product_num_ratings: 1445,
+    product_url: 'https://www.amazon.com/dp/B07Q6ZPC1Q',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/517ul+lt2GL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 22,
+    asin: 'B09MYBD79G',
+    product_title:
+      'Microsoft OEM System Builder | Windоws 11 Pro | Intended use for new systems | Authorized by Microsoft',
+    product_price: '$153.00',
+    product_star_rating: '4.3',
+    product_num_ratings: 1284,
+    product_url: 'https://www.amazon.com/dp/B09MYBD79G',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61p-Ylv5vtL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 23,
+    asin: 'B07VGCN1K2',
+    product_title:
+      'Norton 360 Platinum 2024, Antivirus software for 20 Devices with Auto Renewal - 3 Months FREE - Includes VPN, PC Cloud Backup',
+    product_price: '$39.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 2054,
+    product_url: 'https://www.amazon.com/dp/B07VGCN1K2',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71eJpfjaDLL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 24,
+    asin: 'B0CFSX431Z',
+    product_title:
+      'Quicken Classic Deluxe for New Subscribers| 1 Year [PC/Mac Online Code]',
+    product_price: '$41.93',
+    product_star_rating: '4.1',
+    product_num_ratings: 97,
+    product_url: 'https://www.amazon.com/dp/B0CFSX431Z',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61ypcFpjCuL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 25,
+    asin: 'B07Q8JGCSQ',
+    product_title:
+      'Norton 360 Deluxe 2024, Antivirus software for 3 Devices with Auto Renewal - Includes VPN, PC Cloud Backup & Dark Web Monitor',
+    product_price: '$29.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 4983,
+    product_url: 'https://www.amazon.com/dp/B07Q8JGCSQ',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71uuBMzSgrL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 26,
+    asin: 'B0BB2GF9WW',
+    product_title:
+      'McAfee Total Protection 2024 | 5 Device | Cybersecurity Software Includes Antivirus, Secure VPN, Password Manager, Dark Web M',
+    product_price: '$22.99',
+    product_star_rating: '4.2',
+    product_num_ratings: 1098,
+    product_url: 'https://www.amazon.com/dp/B0BB2GF9WW',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61g2gPUL7-L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 27,
+    asin: 'B07F3SNQT5',
+    product_title:
+      'Microsoft 365 Family | 12-Month Subscription, Up to 6 People | Word, Excel, PowerPoint | 1TB OneDrive Cloud Storage | PC/MAC ',
+    product_price: '$99.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 2730,
+    product_url: 'https://www.amazon.com/dp/B07F3SNQT5',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61qISsi8rAL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 28,
+    asin: 'B0BB2N3SM3',
+    product_title:
+      'McAfee+ Premium 2024 Individual Plan | Unlimited Devices | Identity and Privacy Protection Software includes Unlimited Secure',
+    product_price: '$29.99',
+    product_star_rating: '4.2',
+    product_num_ratings: 265,
+    product_url: 'https://www.amazon.com/dp/B0BB2N3SM3',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/617HjGD0xCL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 29,
+    asin: 'B076VQ4Y4J',
+    product_title:
+      'Laplink PCmover Ultimate 11 - Easily Move your Applications - Files and Settings from an Old PC to a New PC - Includes Option',
+    product_price: '$39.95',
+    product_star_rating: '4.1',
+    product_num_ratings: 4977,
+    product_url: 'https://www.amazon.com/dp/B076VQ4Y4J',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51MC+P+rEpL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 30,
+    asin: 'B07QHLRL1H',
+    product_title:
+      'Laplink PCmover Professional | Instant Download | Single Use License | Moves Applications, Files, and Settings to Your New PC',
+    product_price: '$29.95',
+    product_star_rating: '3.8',
+    product_num_ratings: 1056,
+    product_url: 'https://www.amazon.com/dp/B07QHLRL1H',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/81wHLB1TuAL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 31,
+    asin: 'B0CLBVVRF3',
+    product_title:
+      'TurboTax Premier 2023 Tax Software, Federal & State Tax Return [Amazon Exclusive] [PC/Mac Download]',
+    product_price: '$104.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 5709,
+    product_url: 'https://www.amazon.com/dp/B0CLBVVRF3',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71ABLSmFI3L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 32,
+    asin: 'B0BH5MZ7VT',
+    product_title:
+      '[Old Version] TurboTax Deluxe 2022 Tax Software, Federal and State Tax Return, [Amazon Exclusive] [PC/MAC Download]',
+    product_price: '$69.99',
+    product_star_rating: '4.3',
+    product_num_ratings: 10732,
+    product_url: 'https://www.amazon.com/dp/B0BH5MZ7VT',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71IgMkror-L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 33,
+    asin: 'B07Q4QZGFR',
+    product_title:
+      'Adobe Acrobat Professional DC | PDF converter | 12-month Subscription with auto-renewal, PC/Mac',
+    product_price: '$239.88',
+    product_star_rating: '4.2',
+    product_num_ratings: 1035,
+    product_url: 'https://www.amazon.com/dp/B07Q4QZGFR',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51XI9kYWK8L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 34,
+    asin: 'B082DZBFP7',
+    product_title:
+      'Rosetta Stone Learn UNLIMITED Languages | Lifetime Access - Learn 24 Languages | PC/Mac/iOS/Android Online Code',
+    product_price: '$189.00',
+    product_star_rating: '4.3',
+    product_num_ratings: 1445,
+    product_url: 'https://www.amazon.com/dp/B082DZBFP7',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51nheJ4PQAL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 35,
+    asin: 'B0BZ2MBZK5',
+    product_title:
+      'McAfee Total Protection 2024 | 5 Devices | 15 Month Subscription | Cybersecurity software includes Antivirus, Secure VPN, Pas',
+    product_price: '$24.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 183,
+    product_url: 'https://www.amazon.com/dp/B0BZ2MBZK5',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61hgJGQy3BL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 36,
+    asin: 'B0CJCWHXH2',
+    product_title:
+      'H&R Block Tax Software Deluxe + State 2023 with Refund Bonus Offer (Amazon Exclusive) (PC/MAC Download)',
+    product_price: '$39.97',
+    product_star_rating: '4.1',
+    product_num_ratings: 3940,
+    product_url: 'https://www.amazon.com/dp/B0CJCWHXH2',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51WNth-N57L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 37,
+    asin: 'B092M5G1G7',
+    product_title:
+      'Mullvad VPN | 12 Months for 5 Devices | Protect Your Privacy with Easy-To-Use Security VPN Service',
+    product_price: '$57.00',
+    product_star_rating: '4.7',
+    product_num_ratings: 710,
+    product_url: 'https://www.amazon.com/dp/B092M5G1G7',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/31QJJ68ENgL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 38,
+    asin: 'B092M55HJ2',
+    product_title:
+      'Mullvad VPN | 5 Devices for 6 Months | Protect Your Privacy with Easy-To-Use Security VPN Service',
+    product_price: '$29.00',
+    product_star_rating: '4.7',
+    product_num_ratings: 710,
+    product_url: 'https://www.amazon.com/dp/B092M55HJ2',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61+MBtXYA1L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 39,
+    asin: 'B07DDL3N69',
+    product_title:
+      'Webroot Internet Security Complete | Antivirus Software 2024 | 5 Device | 1 Year Download for PC/Mac/Chromebook/Android/IOS +',
+    product_price: '$31.99',
+    product_star_rating: '4.6',
+    product_num_ratings: 1752,
+    product_url: 'https://www.amazon.com/dp/B07DDL3N69',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61l3NZWVxwL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 40,
+    asin: 'B07Q55XCC9',
+    product_title:
+      'Norton 360 Standard 2024, Antivirus software for 1 Device with Auto Renewal – Includes VPN, PC Cloud Backup & Dark Web Monito',
+    product_price: '$19.99',
+    product_star_rating: '3.9',
+    product_num_ratings: 1018,
+    product_url: 'https://www.amazon.com/dp/B07Q55XCC9',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71QjMMdjlDL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 41,
+    asin: 'B089WH9CFY',
+    product_title:
+      'Malwarebytes Premium | 1 Year, 5 Device | PC, Mac, Android [Online Code]',
+    product_price: '$39.99',
+    product_star_rating: '4.4',
+    product_num_ratings: 260,
+    product_url: 'https://www.amazon.com/dp/B089WH9CFY',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51ZF6vJmpIL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 42,
+    asin: 'B07QLYWQRQ',
+    product_title:
+      'Norton 360 Deluxe 2024, Antivirus software for 5 Devices with Auto Renewal - Includes VPN, PC Cloud Backup & Dark Web Monitor',
+    product_price: '$29.58',
+    product_star_rating: '4.3',
+    product_num_ratings: 4270,
+    product_url: 'https://www.amazon.com/dp/B07QLYWQRQ',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71ANSYyAWvL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 43,
+    asin: 'B0CLBPQX99',
+    product_title:
+      'TurboTax Business 2023 Tax Software, Federal Tax Return [PC Download]',
+    product_price: '$179.99',
+    product_star_rating: '4.1',
+    product_num_ratings: 829,
+    product_url: 'https://www.amazon.com/dp/B0CLBPQX99',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71yyAB8-OPL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 44,
+    asin: 'B07RS7XV5D',
+    product_title:
+      'Corel Easy CD & DVD Burning 2 | Disc Burner & Video Capture [PC Disc]',
+    product_price: '$14.99',
+    product_star_rating: '3.9',
+    product_num_ratings: 1857,
+    product_url: 'https://www.amazon.com/dp/B07RS7XV5D',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71DjNLyzK7L._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 45,
+    asin: 'B0C9GBLZQ1',
+    product_title:
+      'NordVPN Standard – 2-Year - VPN & Cybersecurity Software For 10 Devices – Block Malware, Malicious Links & Ads, Protect Perso',
+    product_price: '$89.99',
+    product_star_rating: '3.9',
+    product_num_ratings: 79,
+    product_url: 'https://www.amazon.com/dp/B0C9GBLZQ1',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/61LppCuU6tL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 46,
+    asin: 'B0CM4F111Z',
+    product_title:
+      'Tech-Shop-pro install Key Included USB For Windows 11 Home Version 32/64 bit. Recover, Restore, Repair Boot USB, and Install ',
+    product_price: '$65.00',
+    product_star_rating: '3.9',
+    product_num_ratings: 16,
+    product_url: 'https://www.amazon.com/dp/B0CM4F111Z',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71HHcF-XFtL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 47,
+    asin: 'B084L8X5VV',
+    product_title:
+      'Malwarebytes | Amazon Exclusive | 18 Months, 2 Devices | PC, Mac, Android [Online Code]',
+    product_price: '$29.99',
+    product_star_rating: '4.5',
+    product_num_ratings: 683,
+    product_url: 'https://www.amazon.com/dp/B084L8X5VV',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/51WbVItYXfL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 48,
+    asin: 'B0CJYL7JYV',
+    product_title: 'TurboTax Deluxe 2023 [Disc]',
+    product_price: '$38.33',
+    product_star_rating: '4.3',
+    product_num_ratings: 14212,
+    product_url: 'https://www.amazon.com/dp/B0CJYL7JYV',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71Eulvi6neL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 49,
+    asin: 'B07TWN55VV',
+    product_title:
+      'Roxio Easy VHS to DVD 3 Plus VHS, Hi8, V8 Video to DVD or Digital Converter Amazon Exclusive 2 Bonus DVDs [Windows Disc]',
+    product_price: '$39.99',
+    product_star_rating: '3.7',
+    product_num_ratings: 3586,
+    product_url: 'https://www.amazon.com/dp/B07TWN55VV',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71Vo5Zbv1oL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+  {
+    rank: 50,
+    asin: 'B0C5JX4CZ1',
+    product_title:
+      'Tech-Shop-pro With Key Compatible Windows 10 Profesional 64 Bit USB.Key Included Install To Factory Fresh, Recover, Repair an',
+    product_price: '$70.00',
+    product_star_rating: '3.9',
+    product_num_ratings: 164,
+    product_url: 'https://www.amazon.com/dp/B0C5JX4CZ1',
+    product_photo:
+      'https://images-na.ssl-images-amazon.com/images/I/71FoOtcipZL._AC_UL900_SR900,600_.jpg',
+    rank_change_label: null,
+  },
+];
+
+const productOffer = {
+  status: 'OK',
+  request_id: 'c7069ccb-e039-4ac0-a25a-556b1a6268ae',
+  parameters: {asin: 'B09SM24S8C', country: 'US', limit: 100, page: 1},
+  data: {
+    asin: 'B09SM24S8C',
+    product_title:
+      'Samsung Galaxy A03s Cell Phone, AT&T GSM Unlocked Android Smartphone, 32GB, Long Lasting Battery, Expandable Storage, 3 Camera Lenses, Infinite Display - Black (Renewed)',
+    product_price: '$74.00',
+    product_original_price: null,
+    currency: 'USD',
+    country: 'US',
+    product_star_rating: '3.9',
+    product_num_ratings: 442,
+    product_url: 'https://www.amazon.com/dp/B09SM24S8C',
+    product_photo: 'https://m.media-amazon.com/images/I/41HG0PuuxAL.jpg',
+    product_num_offers: 34,
+    product_availability: 'Only 11 left in stock - order soon.',
+    is_best_seller: false,
+    is_amazon_choice: false,
+    is_prime: false,
+    climate_pledge_friendly: false,
+    sales_volume: '2K+ bought in past month',
+    about_product: [
+      '6.5" 720 x 1600 (HD+) PLS TFT LCD Infinity-V Display, 5000mAh Battery, Fingerprint (side-mounted)',
+      '64GB ROM, 4GB RAM, MediaTek MT6765 Helio P35 (12nm), Octa-core, PowerVR GE8320, Android 11, upgradable to Android 12, One UI 4.1 Core',
+      'Rear Camera: 13MP, f/2.2, (macro) + 2MP, F2.4, (depth) + 2MP, F2.4, Front Camera: 5 MP, f/2.2, Bluetooth 5.0',
+      '2G: 850/900/1800/1900MHz, 3G: 850/900/1700(AWS)/1900/2100, 4G LTE: B2(1900)/B4(AWS)/B5(850)/B12(700)/B14(700) - Single SIM',
+      'American 4G LTE - Will work with Most GSM SIM cards in the U.S. like AT&T, T-Mobile, Etc. Will NOT work with CDMA Carriers Such as Verizon, Sprint, Boost',
+    ],
+    product_description:
+      'This pre-owned or refurbished product has been professionally inspected and tested to work and look like new. How a product becomes part of Amazon Renewed, your destination for pre-owned, refurbished products: A customer buys a new product and returns it or trades it in for a newer or different model. That product is inspected and tested to work and look like new by Amazon-qualified suppliers. Then, the product is sold as an Amazon Renewed product on Amazon. If not satisfied with the purchase, renewed products are eligible for replacement or refund under the Amazon Renewed Guarantee.',
+    product_information: {
+      'Product Dimensions': '6.46 x 2.99 x 0.36 inches',
+      'Item Weight': '7 ounces',
+      ASIN: 'B09SM24S8C',
+      'Item model number': 'SM-A037W',
+      Batteries: '1 Lithium Polymer batteries required. (included)',
+      'Best Sellers Rank':
+        '#33 in Amazon Renewed (See Top 100 in Amazon Renewed)   #19 in Renewed Smartphones',
+      OS: 'Android',
+      RAM: '2 GB',
+      'Wireless communication technologies': 'Cellular',
+      'Connectivity technologies': 'Bluetooth, Wi-Fi, USB',
+      'Other display features': 'Wireless',
+      'Human Interface Input': 'Touchscreen',
+      'Scanner Resolution': '720 x 1600',
+      'Other camera features': 'Rear, Front',
+      'Form Factor': 'Slate',
+      Color: 'Black',
+      'Battery Power Rating': '5000 Milliamp Hours',
+      'Whats in the box': 'Hybrid SIM Tray',
+      Manufacturer: 'Samsung Electronics',
+      'Date First Available': 'February 16, 2022',
+      'Memory Storage Capacity': '32 GB',
+      'Standing screen display size': '6.5 Inches',
+      'Ram Memory Installed Size': '3 GB',
+      'Battery Capacity': '5000 Milliamp Hours',
+      Weight: '6.98 Ounces',
+      'Charging Time': '3.63 Hours',
+    },
+    rating_distribution: {1: '16', 2: '5', 3: '8', 4: '13', 5: '58'},
+    product_photos: [
+      'https://m.media-amazon.com/images/I/41HG0PuuxAL.jpg',
+      'https://m.media-amazon.com/images/I/41iat8UMBKL.jpg',
+      'https://m.media-amazon.com/images/I/21CATArfRqL.jpg',
+      'https://m.media-amazon.com/images/I/41vhp0zLcQL.jpg',
+      'https://m.media-amazon.com/images/I/21bRFtI4+3L.jpg',
+      'https://m.media-amazon.com/images/I/41HG0PuuxAL.jpg',
+      'https://m.media-amazon.com/images/I/41HG0PuuxAL.jpg',
+    ],
+    product_details: {
+      Brand: 'SAMSUNG',
+      'Operating System': 'Android',
+      'Ram Memory Installed Size': '3 GB',
+      'CPU Model': 'Snapdragon',
+      'Memory Storage Capacity': '32 GB',
+      'Screen Size': '6.5 Inches',
+      Resolution: '720 x 1600',
+      'Model Name': 'Galaxy A03s',
+      'Wireless Carrier': 'Unlocked for All Carriers',
+      'Cellular Technology': 'GSM',
+    },
+    customers_say:
+      "Customers like the ease of use and camera of the cellular phone. They mention that it's simple and easy to set up. They are also satisfied with the condition. However, some customers reported that the phone was not unlocked and that they had to pay extra for it to work. Opinions are mixed on performance, value, and battery life.",
+    category_path: [
+      {
+        id: '2335752011',
+        name: 'Cell Phones & Accessories',
+        link: 'https://www.amazon.com/cell-phones-service-plans-accessories/b/ref=dp_bc_aui_C_1?ie=UTF8&node=2335752011',
+      },
+      {
+        id: '7072561011',
+        name: 'Cell Phones',
+        link: 'https://www.amazon.com/cell-phone-devices/b/ref=dp_bc_aui_C_2?ie=UTF8&node=7072561011',
+      },
+    ],
+    product_variations: {
+      color: [
+        {
+          asin: 'B09SM24S8C',
+          value: 'Black',
+          photo: 'https://m.media-amazon.com/images/I/41HG0PuuxAL.jpg',
+          is_available: true,
+        },
+        {
+          asin: 'B09VXCQGNP',
+          value: 'Blue',
+          photo: 'https://m.media-amazon.com/images/I/31-knlOilOL.jpg',
+          is_available: true,
+        },
+      ],
+    },
+    product_offers: [
+      {
+        product_price: '$74.00',
+        product_condition: 'Refurbished - Excellent',
+        ships_from: 'Joygoods CR',
+        seller: 'Joygoods CR',
+        seller_id: 'AZL8GRY85QC1Y',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=AZL8GRY85QC1Y&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_0',
+        seller_star_rating: '4.5',
+        seller_star_rating_info:
+          '(1350 ratings)\n83% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'July 24 - 25',
+      },
+      {
+        product_price: '$61.00',
+        product_condition: 'Refurbished - Acceptable',
+        product_condition_details:
+          'Accetable C Grade description Electronic World 201 "Acceptable C Grade" condition for refurbished products means that the item has medium to heavy scratches that are visible when holding the device 12 inches away and will be felt to the touch. The screen, bezel or back can also have medium to heavy scratch. Can also have some small dings or chips. The product will also be fully functional and have a battery with more than 80% of its original capacity. Amazon Renewed products come with generic or original equipment manufacturer accessories and packaging, and are eligible for a 90-day replacement or refund guarantee.',
+        ships_from: 'NJ-1',
+        seller: 'NJ-1',
+        seller_id: 'A3U6SKWUNLDOL',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=A3U6SKWUNLDOL&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_1',
+        seller_star_rating: '4',
+        seller_star_rating_info:
+          '(40 ratings)\n71% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'July 25 - 26',
+      },
+      {
+        product_price: '$61.56',
+        product_condition: 'Refurbished - Good',
+        ships_from: 'Amazon.com',
+        seller: 'Techrific Deals',
+        seller_id: 'AXDQETSB4MUQT',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=AXDQETSB4MUQT&isAmazonFulfilled=1&asin=B09SM24S8C&ref_=olp_merch_name_2',
+        seller_star_rating: '4.5',
+        seller_star_rating_info:
+          '(332 ratings)\n90% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'Sunday, July 28',
+      },
+      {
+        product_price: '$64.50',
+        product_condition: 'Refurbished - Acceptable',
+        ships_from: 'Amazon.com',
+        seller: 'MartMania',
+        seller_id: 'AFHJ52XUEKT6G',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=AFHJ52XUEKT6G&isAmazonFulfilled=1&asin=B09SM24S8C&ref_=olp_merch_name_3',
+        seller_star_rating: '5',
+        seller_star_rating_info: '(8 ratings)\n100% positive over lifetime',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'August 7 - 17',
+      },
+      {
+        product_price: '$65.93',
+        product_condition: 'Refurbished - Acceptable',
+        product_condition_details:
+          'GRADE B 8/10. Few scratches or dings. Comes with cable(generic). 60 Days Warranty!',
+        ships_from: 'TeeEra Shop',
+        seller: 'TeeEra Shop',
+        seller_id: 'A1AU4T92PDD75U',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=A1AU4T92PDD75U&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_4',
+        seller_star_rating: '4',
+        seller_star_rating_info:
+          '(352 ratings)\n77% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'July 29 - 31',
+      },
+      {
+        product_price: '$65.93',
+        product_condition: 'Refurbished - Acceptable',
+        product_condition_details:
+          'GRADE B 8/10. Few scratches or dings. Comes with cable(generic). 60 Days Warranty!',
+        ships_from: 'Haverly Store',
+        seller: 'Haverly Store',
+        seller_id: 'A65CUHLW5BI0P',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=A65CUHLW5BI0P&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_5',
+        seller_star_rating: '4.5',
+        seller_star_rating_info:
+          '(832 ratings)\n86% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'July 29 - 31',
+      },
+      {
+        product_price: '$65.93',
+        product_condition: 'Refurbished - Acceptable',
+        product_condition_details:
+          'GRADE B 8/10. Few scratches or dings. Comes with cable(generic). 60 Days Warranty!',
+        ships_from: 'GM DEALS',
+        seller: 'GM DEALS',
+        seller_id: 'AWZ5ROU8H8A6M',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=AWZ5ROU8H8A6M&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_6',
+        seller_star_rating: '4',
+        seller_star_rating_info:
+          '(2583 ratings)\n82% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'July 29 - 31',
+      },
+      {
+        product_price: '$69.72',
+        product_condition: 'Refurbished - Excellent',
+        ships_from: 'Amazon.com',
+        seller: 'Wireless Experts, Inc. (R-CA)',
+        seller_id: 'A2ET27M2CTQ9FF',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=A2ET27M2CTQ9FF&isAmazonFulfilled=1&asin=B09SM24S8C&ref_=olp_merch_name_7',
+        seller_star_rating: '4.5',
+        seller_star_rating_info: '(27 ratings)\n85% positive over lifetime',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'Sunday, July 28',
+      },
+      {
+        product_price: '$70.77',
+        product_condition: 'Refurbished - Excellent',
+        ships_from: 'perfectly professional',
+        seller: 'perfectly professional',
+        seller_id: 'A1HFTVM9QJRCL1',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=A1HFTVM9QJRCL1&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_8',
+        seller_star_rating: '4.5',
+        seller_star_rating_info:
+          '(1244 ratings)\n82% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'Tuesday, July 30',
+      },
+      {
+        product_price: '$70.98',
+        product_condition: 'Refurbished - Excellent',
+        ships_from: 'CELLULAR GALLERY INC',
+        seller: 'CELLULAR GALLERY INC',
+        seller_id: 'A1GCUH9Z3V4Y5T',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=A1GCUH9Z3V4Y5T&isAmazonFulfilled=0&asin=B09SM24S8C&ref_=olp_merch_name_9',
+        seller_star_rating: '4',
+        seller_star_rating_info:
+          '(4977 ratings)\n70% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'July 31 - August 2',
+      },
+      {
+        product_price: '$71.10',
+        product_condition: 'Refurbished - Excellent',
+        ships_from: 'Amazon.com',
+        seller: 'Techrific Deals',
+        seller_id: 'AXDQETSB4MUQT',
+        seller_link:
+          'https://www.amazon.com/gp/aag/main?ie=UTF8&seller=AXDQETSB4MUQT&isAmazonFulfilled=1&asin=B09SM24S8C&ref_=olp_merch_name_10',
+        seller_star_rating: '4.5',
+        seller_star_rating_info:
+          '(332 ratings)\n90% positive over last 12 months',
+        currency: 'USD',
+        delivery_price: 'FREE',
+        delivery_time: 'Sunday, July 28',
+      },
+    ],
+  },
+};
+
 export const getProductDataApi = async () => {
   const options = {
     method: 'GET',
@@ -1241,6 +2181,54 @@ export const getProductDealsApi = async () => {
   try {
     // const response = await axios.request(options);
     return deals;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getBestSellerProductApi = async () => {
+  const options = {
+    method: 'GET',
+    url: 'https://real-time-amazon-data.p.rapidapi.com/best-sellers',
+    params: {
+      category: 'software',
+      type: 'BEST_SELLERS',
+      page: '1',
+      country: 'US',
+    },
+    headers: {
+      'x-rapidapi-key': '66ca65bb22msh3d93dafc2ebf7dbp13cc14jsn54a6c8df0d9b',
+      'x-rapidapi-host': 'real-time-amazon-data.p.rapidapi.com',
+    },
+  };
+
+  try {
+    // const response = await axios.request(options);
+    return bestSeller;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getSingleProductOffer = async (id="B09SM24S8C") => {
+  const options = {
+    method: 'GET',
+    url: 'https://real-time-amazon-data.p.rapidapi.com/product-offers',
+    params: {
+      asin: id,
+      country: 'US',
+      limit: '2296',
+      page: '1',
+    },
+    headers: {
+      'x-rapidapi-key': '66ca65bb22msh3d93dafc2ebf7dbp13cc14jsn54a6c8df0d9b',
+      'x-rapidapi-host': 'real-time-amazon-data.p.rapidapi.com',
+    },
+  };
+
+  try {
+    // const response = await axios.request(options);
+      return productOffer;
   } catch (error) {
     console.error(error);
   }

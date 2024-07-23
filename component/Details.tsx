@@ -1,8 +1,10 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, ScrollView, Button, FlatList, TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackPramList } from '../App'
-
+import BottomSheetBestSeller from './BottomSheetBestSeller'
+import { getBestSellerProductApi } from '../apiCall/productApi'
+import Fontisto from "react-native-vector-icons/Fontisto";
 
 type DetailsProps = NativeStackScreenProps<RootStackPramList,"Details">
 
@@ -10,24 +12,58 @@ const url ='https://www.myg.in/images/thumbnails/624/460/detailed/51/S24ULTRAGRE
 
 export default function Details({route}:DetailsProps) {
    
-   
     const {product} = route.params
+    const [isSheetVisible, setSheetVisible] = useState(false);
+    const [data,setData] = useState([])
+
+    useEffect(()=>{
+
+      getBestSellerProductApi()
+      .then((value:any)=>{
+        setData(value)
+      })
+      .catch((err)=>{
+        console.warn(err)
+      })
+
+    },[])
+
+    const toggleSheet = () => {
+      setSheetVisible(!isSheetVisible);
+    };
 
   return (
-    <View>
+    <View style={{flex:1}}>
+
 
       <View style={styles.card}>
-      <Image source={{ uri: url }} style={styles.image} />
+      <Image source={{ uri: product.product_photo }} style={styles.image} />
       <View style={styles.infoContainer}>
-        <Text style={styles.name}> {product.name}</Text>
-        <Text style={styles.price}>₹ {product.price}</Text>
-        <Text style={styles.description}>{product.description}</Text>
-        <Text style={styles.details}>Brand: {product.brand}</Text>
-        <Text style={styles.details}>Color: {product.color}</Text>
-        <Text style={styles.rating}>Rating: {product.rating} ★</Text>
-        <Text style={styles.stock}>{product.stock} left in stock</Text>
+        <Text style={styles.name}> {product.product_title}</Text>
+        <Text style={styles.price}>{product.product_price}</Text>
+        <Text style={styles.rating}>Rating: {product.product_star_rating} ★</Text>
+        <Text style={styles.stock}>{product.stock || 3} left in stock</Text>
       </View>
-    </View>
+      </View>
+
+      <TouchableOpacity style={{position:"absolute",bottom:5,width:'100%',backgroundColor:"black",display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center",}} onPress={toggleSheet}   >
+        <Fontisto name='arrow-up' size={20} color={"white"}  />
+         <Button title="Best seller Product" color={"black"} />
+      </TouchableOpacity>
+
+        {isSheetVisible && (
+
+          <BottomSheetBestSeller
+          snapPoints={['25%', '40%', '50%']}
+          onChange={(index: any) => {}}
+          data={data} children={undefined} 
+          title={"Best Seller Products"}        
+          />
+          
+        )}
+
+
+
     </View>
   )
 }
@@ -50,12 +86,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     margin:5,
+    resizeMode:"contain"
   },
   infoContainer: {
     padding: 15
   },
   name: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold',
     marginBottom: 5
   },

@@ -2,6 +2,7 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from './component/Home';
 import Details from './component/Details';
 import CartDetail from './component/CartDetail';
@@ -14,7 +15,10 @@ import Slider from './component/Slider';
 import Review from './component/Review';
 import DealProduct from './component/DealProduct';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import SearchBar from './component/SearchBar';
+import 'react-native-gesture-handler';
+import OfferCard from './component/OfferCard';
 
 export type RootStackPramList = {
   Home: undefined;
@@ -28,48 +32,159 @@ export type RootStackPramList = {
   Review: {id: string};
   Deal: undefined;
   Search: undefined;
+  Offers: {id:any}
+};
+
+export type RootDrawerPramList = {
+  HomeStack: undefined;
+  Profile: undefined;
+  Deals: undefined;
+  Login: undefined;
+  Signup: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
+const Drawer = createDrawerNavigator<RootDrawerPramList>();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Search"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={() => ({
+          headerShown: false,
+          headerBackButtonMenuEnabled: false,
+        })}
+      />
+      <Stack.Screen
+        name="Details"
+        component={Details}
+        options={{title: 'Product Details'}}
+      />
+      <Stack.Screen
+        name="Carts"
+        component={CartDetail}
+        options={{title: 'Cart Details'}}
+      />
+
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="List" component={FlatlistProduct} />
+      <Stack.Screen name="Review" component={Review} />
+      <Stack.Screen
+        name="Slider"
+        component={Slider}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Deal"
+        component={DealProduct}
+        options={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Search"
+        component={SearchBar}
+        options={{headerShown: false}}
+        />
+
+      <Stack.Screen
+        name='Offers'
+        component={OfferCard}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
-
-
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={({navigation})=>({
-            title: 'Trending Product',
-            headerBackButtonMenuEnabled: false,
-            headerRight: ()=>(
-              <FontAwesome name='search' size={25} color={"black"} 
-              onPress={()=>navigation.navigate("Search")}   />
-            )
-          })}
-        />
-        <Stack.Screen
-          name="Details"
-          component={Details}
-          options={{title: 'Product Details'}}
-        />
-        <Stack.Screen
-          name="Carts"
-          component={CartDetail}
-          options={{title: 'Cart Details'}}
-        />
-        <Stack.Screen name="Login" component={Login} options={{headerShown:false}}  />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Register" component={MultiStepForm} />
+      <Drawer.Navigator
+        initialRouteName="Login"
+        screenOptions={({navigation}) => ({
+          headerTitleAlign:"center",
+          headerStyle: {
+            backgroundColor: 'black',
+          },
+          drawerLabelStyle:{
+            fontSize:17,
+            fontWeight:"bold",
+            textAlign:"left"
+          },
+          headerTitleStyle: {
+            color: 'white',
+          },
+          drawerActiveTintColor: 'black',
+          drawerInactiveTintColor: 'black',
+          headerTintColor: 'white',
+          headerRight: () => (
+            <FontAwesome
+              name="search"
+              size={25}
+              color={'white'}
+              onPress={() => navigation.navigate('Search')}
+              style={{marginRight: 10}}
+            />
+          ),
+        })}>
 
-        <Stack.Screen name="List" component={FlatlistProduct} />
-        <Stack.Screen name="Review" component={Review} />
-        <Stack.Screen name="Slider" component={Slider} options={{headerShown:false}} />
-        <Stack.Screen name="Deal" component={DealProduct} options={{headerShown:true}} />
-        <Stack.Screen name="Search" component={SearchBar} options={{headerShown:false}} />
-      </Stack.Navigator>
+         
+
+        <Drawer.Screen
+          name="HomeStack"
+          component={HomeStack}
+          options={{
+            title: `${" "}Home`,
+          
+            drawerIcon: () => (
+              <FontAwesome name="home" size={25} color={'black'} style={{marginLeft:5}}  />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            title: `${"  "}Profile`,
+            drawerIcon: () => (
+              <FontAwesome name="user" size={25} color={'black'} style={{marginLeft:5}}  />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Deals"
+          component={DealProduct}
+          options={{
+            title: `Deals`,
+            drawerIcon: () => (
+              <FontAwesome6 name="shop" size={25} color={'black'}  />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+            name='Login'
+            component={Login}
+            options={{
+              headerShown:false,
+              title:""              
+            }}
+          />
+
+          <Drawer.Screen
+              name='Signup'
+              component={MultiStepForm}
+              options={{
+                headerShown:false,
+                title:""              
+              }}
+          />
+
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
+
+

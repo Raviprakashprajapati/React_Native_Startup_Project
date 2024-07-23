@@ -1,24 +1,15 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView, Linking } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { RootStackPramList } from '../App'
+import { RootDrawerPramList, RootStackPramList } from '../App'
 import { getProductDealsApi } from '../apiCall/productApi'
 
 const { width } = Dimensions.get('window');
 
 type DealProductProps = NativeStackScreenProps<RootStackPramList,"Deal"> 
 
-// const deal:any = {
-//   deal_title: 'Apple AirPods Max Wireless Over-Ear Headphones, Active Noise Cancelling, Transparency Mode, Personalized Spatial Audio, Dolby Atmos, Bluetooth Headphones for iPhone – Pink',
-//   deal_photo: 'https://m.media-amazon.com/images/I/81NIpE9-5mL.jpg',
-//   deal_state: 'AVAILABLE',
-//   deal_url: 'https://www.amazon.com/New-Apple-AirPods-Max-Pink/dp/B08PZJ8FZ8',
-//   deal_badge: '30% off',
-//   deal_starts_at: '2024-07-22T07:00:00.000Z',
-//   deal_ends_at: '2024-07-29T07:00:00.000Z',
-// };
 
-export default function DealProduct({navigation,route}: DealProductProps) {
+export default function DealProduct({navigation,route}: any) {
 
   const [deal,setDeal] = useState([])
 

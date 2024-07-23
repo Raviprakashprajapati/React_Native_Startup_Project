@@ -11,7 +11,7 @@ export const reducer = (state=initialState,action) => {
             ]
         
         case REMOVE_FROM_CART: 
-            return state.filter(i=>i.id!==action.payload.id)
+            return state.filter(i=>i.asin!==action.payload)
             
     
         default:
