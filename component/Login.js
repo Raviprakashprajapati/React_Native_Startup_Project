@@ -6,16 +6,16 @@ import {
   Pressable,
   Dimensions,
   Image,
+  ImageBackground,
+  SafeAreaView,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackPramList} from '../App';
+import React, { useState} from 'react';
 import * as Yup from 'yup';
 import {Formik} from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import OfferCard from './OfferCard';
-import DailogBox from './DailogBox';
+
+
 
 GoogleSignin.configure({
   webClientId:
@@ -93,6 +93,7 @@ export default function Login({navigation}) {
     }
   };
 
+
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Formik
@@ -167,6 +168,9 @@ export default function Login({navigation}) {
           </View>
         )}
       </Formik>
+
+   
+
     </View>
   );
 }

@@ -20,8 +20,8 @@ export default function CartDetail() {
       <View>
         {
             cartData.length>0 && cartData.map((i:any)=>(
-                <View key={i.id} style={{width:200,backgroundColor:"#fff",padding:10,margin:10}}>
-                     <Text>{i.name}</Text>
+                <View key={i.id} style={{width:300,backgroundColor:"#fff",padding:10,margin:10}}>
+                     <Text>{i?.product_title}</Text>
                 </View>
             ))
         }

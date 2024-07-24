@@ -15,12 +15,15 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Dialog from 'react-native-dialog';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Slider from '@react-native-community/slider';
-import Entypo from "react-native-vector-icons/Entypo"
-import {AirbnbRating} from "react-native-ratings"
+import Entypo from 'react-native-vector-icons/Entypo';
+import {AirbnbRating} from 'react-native-ratings';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {Picker} from "@react-native-picker/picker";
+import RNPickerSelect from 'react-native-picker-select'
 
 type SearchProps = NativeStackScreenProps<RootStackPramList, 'Search'>;
 
-const Product = [
+const Product1 = [
   {
     asin: 'B0CMTW9MVK',
     product_title:
@@ -554,12 +557,15 @@ export default function SearchBar({navigation, route}: SearchProps) {
 
   const [searchText, setSearchText] = useState('');
   const searchRef = useRef<TextInput | null>(null);
-
+  const [Product, setProduct] = useState(Product1);
   const [showDialog, setShowDialog] = useState(false);
-  const [minValue, setMinValue] = useState(0); 
+  const [minValue, setMinValue] = useState(0);
   const [maxValue, setMaxValue] = useState(0);
-  const [rating,setRating] = useState(0) 
+  const [rating, setRating] = useState(0);
+  const [isFilterApplied, setIsFilterApplied] = useState(false);
+  const [filterData, setFilterData] = useState([]);
   const toggleDialog = () => setShowDialog(!showDialog);
+  const [pickerData,setPickerData] = useState()
 
   useEffect(() => {
     if (searchRef.current) {
@@ -571,22 +577,29 @@ export default function SearchBar({navigation, route}: SearchProps) {
     setSearchText('');
   };
 
-  function handleFilterSearch(){
-    toggleDialog()
+  function handleFilterSearch() {
+    toggleDialog();
+    if (isFilterApplied == true) {
+      let filterProductData: any = [];
 
-    const filterProduct = Product.filter((i)=>{
-      const productPrice = +i.product_price;
-      const productRating = i.product_star_rating ? +i.product_star_rating: 0;
+      const filterProduct = Product.map(i => {
+        if (minValue != 0 && maxValue != 0) {
+          let price = parseFloat(i.product_price.replace(/[^\d.-]/g, ''));
 
-      return (
-        (minValue!==0 ? productPrice>=minValue : true) &&
-        (maxValue!==0 ? productPrice<=maxValue : true) &&
-        (rating!==0 ? productRating===rating : true)
-      )
-
-    })
-    console.warn(filterProduct)
-
+          price >= Number(minValue) && price <= Number(maxValue)? 
+          filterProductData.push(i) : null;
+        }
+        if (+rating != 0) {
+          if (i.product_star_rating) {
+            const productRating = parseFloat(i.product_star_rating);
+            if (rating === productRating) {
+              filterProductData.push(i);
+            }
+          }
+        }
+      });
+      setFilterData(filterProductData);
+    }
   }
 
   return (
@@ -617,7 +630,7 @@ export default function SearchBar({navigation, route}: SearchProps) {
         )}
       </View>
 
-      {searchText === '' && (
+      {searchText === '' && !isFilterApplied && (
         <Text
           style={{
             height: '100%',
@@ -664,63 +677,166 @@ export default function SearchBar({navigation, route}: SearchProps) {
         </ScrollView>
       )}
 
+      {isFilterApplied && searchText === '' && filterData.length > 0 && (
+        <ScrollView style={{marginBottom: 50}}>
+          {filterData.map((i: any, index) => (
+            <TouchableOpacity
+              style={{
+                backgroundColor: 'white',
+                padding: 20,
+                margin: 8,
+                borderRadius: 20,
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
+                alignItems: 'center',
+                gap: 10,
+              }}
+              key={index}
+              onPress={() => navigation.navigate('Details', {product: i})}>
+              <Image
+                source={{uri: i?.product_photo}}
+                style={{height: 60, width: 60, resizeMode: 'contain'}}
+              />
+              <Text style={{fontSize: 13, width: '70%'}}>
+                {i.product_title.substring(0, 50)}...
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      )}
 
-        
-      <Dialog.Container visible={showDialog} >
-        <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",marginTop:-20,marginBottom:14}}>
-        <Dialog.Title>Apply Filter 
-        </Dialog.Title>
-        <Entypo name='cross' size={25} onPress={toggleDialog} />
-      
+      {/* filter  */}
+      <Dialog.Container visible={showDialog}>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            marginTop: -20,
+            marginBottom: 14,
+          }}>
+          <Dialog.Title>
+            {isFilterApplied ? (
+              <Fontisto
+                name="radio-btn-active"
+                size={15}
+                onPress={() => setIsFilterApplied(!isFilterApplied)}
+              />
+            ) : (
+              <Fontisto
+                name="radio-btn-passive"
+                size={15}
+                onPress={() => setIsFilterApplied(!isFilterApplied)}
+              />
+            )}
+            <Text>{''} Apply Filter </Text>
+          </Dialog.Title>
+          <Entypo
+            name="cross"
+            size={25}
+            color={'black'}
+            onPress={toggleDialog}
+          />
         </View>
-      <View>
+
+        <View>
           <View>
-            <Text>Price :</Text>
-          <Text style={{textAlign:"center",fontSize:18}} >  ₹{minValue} -  ₹{maxValue}</Text>
-          <View style={{display:"flex",flexDirection:"row",justifyContent:"space-evenly",alignItems:"center"}} >
+            <Text>Price Range :</Text>
+            <Text style={{textAlign: 'center', fontSize: 18}}>
+              {' '}
+              ₹{minValue} - ₹{maxValue}
+            </Text>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-evenly',
+                alignItems: 'center',
+              }}>
               <Slider
                 style={{width: 120, height: 40}}
-                minimumValue={200}
+                minimumValue={0}
                 step={10}
-                maximumValue={10000}
+                maximumValue={100000}
                 value={minValue}
-                onValueChange={(value)=>setMinValue(value)}
+                onValueChange={value => setMinValue(value)}
                 minimumTrackTintColor="black"
                 maximumTrackTintColor="black"
               />
-                <Slider
+              <Slider
                 style={{width: 120, height: 40}}
-                minimumValue={1000}
+                minimumValue={0}
                 step={10}
                 maximumValue={100000}
                 value={maxValue}
-                onValueChange={(value)=>(value>minValue?setMaxValue(value):setMaxValue(100000))}
+                onValueChange={value =>
+                  value > minValue ? setMaxValue(value) : setMaxValue(minValue)
+                }
                 minimumTrackTintColor="black"
                 maximumTrackTintColor="black"
               />
-          </View>
+            </View>
           </View>
 
-          <View>
-              <Text>Rating : {rating}</Text>
+          <View style={{marginBottom: 10}}>
+            <Text>Rating : {rating}</Text>
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: 5,
+              }}>
               <AirbnbRating
                 count={5}
                 defaultRating={rating}
                 size={20}
-                onFinishRating={(rate:any)=>setRating(rate)}
+                onFinishRating={(rate: any) => setRating(rate)}
                 showRating={false}
               />
-          
+              <Text>|</Text>
+              <MaterialIcons
+                name="exposure-zero"
+                size={20}
+                onPress={() => setRating(0)}
+              />
+            </View>
           </View>
-              
-          
-      </View>
-   
-      <Dialog.Button label="Search" style={{backgroundColor:"black",color:"white",width:"100%",textAlign:"center"}}  onPress={handleFilterSearch} />
+        </View>
+
+        {/* <RNPickerSelect 
+          onValueChange={(value)=>console.warn(value)}
+          items={[
+            {label:"Apple",value:"apple"},
+            {label:"Sumsung",value:"sumsung"},
+          ]}
+       /> */}
+
+
+{/* 
+        <Picker
+          selectedValue={pickerData}
+          onValueChange={(itemValue, itemIndex) =>
+            setPickerData(itemValue)
+          }>
+          <Picker.Item label="Java" value="java" />
+          <Picker.Item label="JavaScript" value="js" />
+        </Picker> */}
+
+        <Dialog.Button
+          label="Search"
+          style={{
+            backgroundColor: 'black',
+            color: 'white',
+            width: '100%',
+            textAlign: 'center',
+          }}
+          onPress={handleFilterSearch}
+        />
       </Dialog.Container>
-        
-
-
     </View>
   );
 }
@@ -731,7 +847,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
   },
   slider: {
-    width: "90%",
+    width: '90%',
     height: 40,
     marginVertical: 10,
   },

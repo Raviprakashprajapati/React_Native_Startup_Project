@@ -43,7 +43,7 @@ export default function Review({route}: ReviewProps) {
   }, []);
 
   return (
-    <ScrollView>
+    <View>
       <Text
         style={{
           backgroundColor: 'black',
@@ -62,7 +62,7 @@ export default function Review({route}: ReviewProps) {
           renderItem={({item}) => <ReviewDesign data={item} />}
         />
       )}
-    </ScrollView>
+    </View>
   );
 }
 

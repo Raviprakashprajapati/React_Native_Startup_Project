@@ -19,6 +19,8 @@ import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import SearchBar from './component/SearchBar';
 import 'react-native-gesture-handler';
 import OfferCard from './component/OfferCard';
+import CategoryProduct from './component/CategoryProduct';
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 export type RootStackPramList = {
   Home: undefined;
@@ -32,7 +34,7 @@ export type RootStackPramList = {
   Review: {id: string};
   Deal: undefined;
   Search: undefined;
-  Offers: {id:any}
+  Offers: {product:any}
 };
 
 export type RootDrawerPramList = {
@@ -41,6 +43,7 @@ export type RootDrawerPramList = {
   Deals: undefined;
   Login: undefined;
   Signup: undefined;
+  Category: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
@@ -49,7 +52,7 @@ const Drawer = createDrawerNavigator<RootDrawerPramList>();
 function HomeStack() {
   return (
     <Stack.Navigator
-      initialRouteName="Search"
+      initialRouteName="Home"
       screenOptions={{headerShown: false}}>
       <Stack.Screen
         name="Home"
@@ -165,6 +168,17 @@ export default function App() {
         />
 
         <Drawer.Screen
+          name="Category"
+          component={CategoryProduct}
+          options={{
+            title: `${" "}Category`,
+            drawerIcon: () => (
+              <MaterialIcons name="category" size={25} color={'black'}  />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
             name='Login'
             component={Login}
             options={{
@@ -181,6 +195,8 @@ export default function App() {
                 title:""              
               }}
           />
+
+          
 
       </Drawer.Navigator>
     </NavigationContainer>

@@ -551,7 +551,7 @@ const url =
 
 type HomeProps = NativeStackScreenProps<RootStackPramList, 'Home'>;
 
-export default function Home({navigation}: HomeProps) {
+export default function Home({navigation}:any) {
   const dispatch = useDispatch();
   const cartData = useSelector((state: any) => state.reducer);
   const [searchData, setSearchData] = useState('');

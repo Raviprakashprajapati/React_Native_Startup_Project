@@ -63,6 +63,8 @@ const styles = StyleSheet.create({
       height:200,
       resizeMode:"contain",
       borderRadius:10,
+      shadowColor:"yellow",
+      elevation:10,
     }
     
   });
