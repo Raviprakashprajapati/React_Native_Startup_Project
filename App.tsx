@@ -1,4 +1,3 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,7 +7,6 @@ import Details from './component/Details';
 import CartDetail from './component/CartDetail';
 import Login from './component/Login';
 import Profile from './component/Profile';
-import Register from './component/Register';
 import MultiStepForm from './component/MultiStepForm';
 import FlatlistProduct from './component/FlatlistProduct';
 import Slider from './component/Slider';
@@ -21,6 +19,8 @@ import 'react-native-gesture-handler';
 import OfferCard from './component/OfferCard';
 import CategoryProduct from './component/CategoryProduct';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import Layout from './component/Layout';
+import Feather from "react-native-vector-icons/Feather"
 
 export type RootStackPramList = {
   Home: undefined;
@@ -44,6 +44,7 @@ export type RootDrawerPramList = {
   Login: undefined;
   Signup: undefined;
   Category: undefined;
+  Layout: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
@@ -133,8 +134,6 @@ export default function App() {
           ),
         })}>
 
-         
-
         <Drawer.Screen
           name="HomeStack"
           component={HomeStack}
@@ -174,6 +173,18 @@ export default function App() {
             title: `${" "}Category`,
             drawerIcon: () => (
               <MaterialIcons name="category" size={25} color={'black'}  />
+            ),
+          }}
+        />
+
+
+        <Drawer.Screen
+          name="Layout"
+          component={Layout}
+          options={{
+            title: `${" "}Layout`,
+            drawerIcon: () => (
+              <Feather name="layout" size={25} color={'black'}  />
             ),
           }}
         />

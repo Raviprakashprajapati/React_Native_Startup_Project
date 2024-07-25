@@ -28,7 +28,7 @@ export default function Profile({navigation}: ProfileProps) {
 
   async function handleLogout() {
     try {
-      await AsyncStorage.removeItem('user');
+      await AsyncStorage.clear();
       navigation.navigate('Login');
     } catch (error) {
       console.warn('Error in removing ', error);

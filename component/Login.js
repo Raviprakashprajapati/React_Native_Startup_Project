@@ -14,7 +14,7 @@ import * as Yup from 'yup';
 import {Formik} from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-
+import { Switch } from 'react-native-paper';
 
 
 GoogleSignin.configure({
@@ -46,6 +46,7 @@ const loginSchema = Yup.object().shape({
 });
 
 export default function Login({navigation}) {
+
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
@@ -94,19 +95,26 @@ export default function Login({navigation}) {
   };
 
 
+
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      
+
       <Formik
         initialValues={{name: '', password: ''}}
         validationSchema={loginSchema}
         onSubmit={(values, {resetForm}) => {
-          saveData(values);
+          if(values){
+
+            saveData(values);
+          }
           resetForm();
         }}>
         {({handleChange, handleSubmit, values, errors, touched}) => (
           <View style={styles.container}>
             <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
               Login
+
             </Text>
             <TextInput
               placeholder="Enter your name"

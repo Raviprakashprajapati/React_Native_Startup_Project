@@ -18,8 +18,7 @@ import Slider from '@react-native-community/slider';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {AirbnbRating} from 'react-native-ratings';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Picker} from "@react-native-picker/picker";
-import RNPickerSelect from 'react-native-picker-select'
+import RNPickerSelect from 'react-native-picker-select';
 
 type SearchProps = NativeStackScreenProps<RootStackPramList, 'Search'>;
 
@@ -565,7 +564,7 @@ export default function SearchBar({navigation, route}: SearchProps) {
   const [isFilterApplied, setIsFilterApplied] = useState(false);
   const [filterData, setFilterData] = useState([]);
   const toggleDialog = () => setShowDialog(!showDialog);
-  const [pickerData,setPickerData] = useState()
+  const [pickerData, setPickerData] = useState();
 
   useEffect(() => {
     if (searchRef.current) {
@@ -579,24 +578,39 @@ export default function SearchBar({navigation, route}: SearchProps) {
 
   function handleFilterSearch() {
     toggleDialog();
+    setSearchText('');
     if (isFilterApplied == true) {
       let filterProductData: any = [];
 
       const filterProduct = Product.map(i => {
-        if (minValue != 0 && maxValue != 0) {
-          let price = parseFloat(i.product_price.replace(/[^\d.-]/g, ''));
 
-          price >= Number(minValue) && price <= Number(maxValue)? 
-          filterProductData.push(i) : null;
-        }
-        if (+rating != 0) {
-          if (i.product_star_rating) {
-            const productRating = parseFloat(i.product_star_rating);
-            if (rating === productRating) {
-              filterProductData.push(i);
+        let price = parseFloat(i.product_price.replace(/[^\d.-]/g, ''));
+        let productRating = i.product_star_rating? parseFloat(i.product_star_rating) : null;    
+
+        if(minValue!=0 && maxValue!=0 && rating!=0){
+
+            if(i.product_star_rating){
+
+             price >= Number(minValue) && price <= Number(maxValue) && rating===productRating
+                ? filterProductData.push(i)
+                : null;  
             }
-          }
+    
         }
+        else if (minValue==0 || maxValue==0 && rating!=0){
+          if(i.product_star_rating){
+            rating===productRating?filterProductData.push(i)
+            : null;  
+          }
+
+        }
+        else if(rating==0 && minValue!=0 && maxValue!=0){
+          price >= Number(minValue) && price <= Number(maxValue)
+          ? filterProductData.push(i)
+          : null;  
+        }
+
+        
       });
       setFilterData(filterProductData);
     }
@@ -806,6 +820,7 @@ export default function SearchBar({navigation, route}: SearchProps) {
             </View>
           </View>
         </View>
+        
 
         {/* <RNPickerSelect 
           onValueChange={(value)=>console.warn(value)}
@@ -815,8 +830,7 @@ export default function SearchBar({navigation, route}: SearchProps) {
           ]}
        /> */}
 
-
-{/* 
+        {/* 
         <Picker
           selectedValue={pickerData}
           onValueChange={(itemValue, itemIndex) =>
@@ -824,7 +838,8 @@ export default function SearchBar({navigation, route}: SearchProps) {
           }>
           <Picker.Item label="Java" value="java" />
           <Picker.Item label="JavaScript" value="js" />
-        </Picker> */}
+        </Picker> 
+        */}
 
         <Dialog.Button
           label="Search"
@@ -836,10 +851,26 @@ export default function SearchBar({navigation, route}: SearchProps) {
           }}
           onPress={handleFilterSearch}
         />
-      </Dialog.Container>
+        </Dialog.Container>
+
     </View>
   );
 }
+
+
+// if (minValue != 0 && maxValue != 0) {
+
+//   price >= Number(minValue) && price <= Number(maxValue)
+//     ? filterProductData.push(i)
+//     : null;
+// }
+// if (+rating != 0) {
+//   if (i.product_star_rating) {
+//     if (rating === productRating) {
+//       filterProductData.push(i);
+//     }
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
