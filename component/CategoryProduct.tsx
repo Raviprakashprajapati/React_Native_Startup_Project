@@ -1120,12 +1120,15 @@ export default function CategoryProduct() {
           )}
           onEndReached={loadMoreProducts}
           onEndReachedThreshold={0.5}
-          ListFooterComponent={isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : null}
+          ListFooterComponent={ isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : null }
         />
       </View>
     );
   }
   
+
+
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,

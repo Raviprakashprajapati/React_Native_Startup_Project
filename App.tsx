@@ -20,11 +20,12 @@ import OfferCard from './component/OfferCard';
 import CategoryProduct from './component/CategoryProduct';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Layout from './component/Layout';
-import Feather from 'react-native-vector-icons/Feather';
+import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import UseFormHook from './component/UseFormHook';
 import Detail from './component/Detail';
 import Foundation from "react-native-vector-icons/Foundation";
+import GroupProduct from './component/GroupProduct';
 
 
 export type RootStackPramList = {
@@ -52,6 +53,7 @@ export type RootDrawerPramList = {
   Layout: undefined;
   Form: undefined;
   Detail: undefined;
+  Brand: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
@@ -114,7 +116,7 @@ export default function App() {
     
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="Login"
+        initialRouteName="HomeStack"
         screenOptions={({navigation}) => ({
           headerTitleAlign: 'center',
           headerStyle: {
@@ -224,6 +226,17 @@ export default function App() {
             title: `${' '}Details`,
             drawerIcon: () => (
               <FontAwesome name="th-list" size={25} color={'black'} />
+            ),
+          }}
+        />
+
+       <Drawer.Screen
+          name="Brand"
+          component={GroupProduct}
+          options={{
+            title: `${' '}Brand`,
+            drawerIcon: () => (
+              <Entypo name="select-arrows" size={25} color={'black'} />
             ),
           }}
         />

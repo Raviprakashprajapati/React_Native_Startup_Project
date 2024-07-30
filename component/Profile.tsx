@@ -3,11 +3,14 @@ import React, {useEffect, useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackPramList} from '../App';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
+
 
 type ProfileProps = NativeStackScreenProps<RootStackPramList, 'Profile'>;
 
+
 export default function Profile({navigation}: ProfileProps) {
-  const [user, setUser] = useState({name: '', password: ''});
+  const [user, setUser] = useState({name: '' , password: ''});
 
   async function getUserData() {
     try {
@@ -37,7 +40,6 @@ export default function Profile({navigation}: ProfileProps) {
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    
       <View
         style={{
           backgroundColor: '#fff',
@@ -55,7 +57,10 @@ export default function Profile({navigation}: ProfileProps) {
             borderRadius: 20,
             textAlign: 'center',
             fontSize: 18,
+            fontWeight:"bold",
           }}>
+        <FontAwesome5 name='user-alt' size={20} />
+          {"  "}
           Profile
         </Text>
         <View style={{backgroundColor: 'white', padding: 20}}>
@@ -70,7 +75,7 @@ export default function Profile({navigation}: ProfileProps) {
               padding: 7,
               textAlign: 'center',
               color: 'white',
-              marginTop: 10,
+              marginTop: 20,
             }}
             onPress={handleLogout}>
             Logout
