@@ -19,6 +19,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {AirbnbRating} from 'react-native-ratings';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RNPickerSelect from 'react-native-picker-select';
+import {Picker} from "@react-native-picker/picker"
 
 type SearchProps = NativeStackScreenProps<RootStackPramList, 'Search'>;
 
@@ -565,6 +566,7 @@ export default function SearchBar({navigation, route}: SearchProps) {
   const [filterData, setFilterData] = useState([]);
   const toggleDialog = () => setShowDialog(!showDialog);
   const [pickerData, setPickerData] = useState();
+  const [selectedValue, setSelectedValue] = useState('java');
 
   useEffect(() => {
     if (searchRef.current) {
@@ -821,25 +823,18 @@ export default function SearchBar({navigation, route}: SearchProps) {
           </View>
         </View>
         
-
-        {/* <RNPickerSelect 
-          onValueChange={(value)=>console.warn(value)}
-          items={[
-            {label:"Apple",value:"apple"},
-            {label:"Sumsung",value:"sumsung"},
-          ]}
-       /> */}
-
-        {/* 
-        <Picker
-          selectedValue={pickerData}
-          onValueChange={(itemValue, itemIndex) =>
-            setPickerData(itemValue)
-          }>
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
-        </Picker> 
-        */}
+            <Picker
+            selectedValue={selectedValue}
+            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+            // style={styles.picker}
+            >
+              <Picker.Item label="Java" value="java" />
+              <Picker.Item label="JavaScript" value="javascript" />
+              <Picker.Item label="Python" value="python" />
+              <Picker.Item label="C++" value="cpp" />
+              <Picker.Item label="Swift" value="swift" />
+            </Picker>
+    
 
         <Dialog.Button
           label="Search"
@@ -851,26 +846,12 @@ export default function SearchBar({navigation, route}: SearchProps) {
           }}
           onPress={handleFilterSearch}
         />
-        </Dialog.Container>
+      </Dialog.Container>
 
     </View>
   );
 }
 
-
-// if (minValue != 0 && maxValue != 0) {
-
-//   price >= Number(minValue) && price <= Number(maxValue)
-//     ? filterProductData.push(i)
-//     : null;
-// }
-// if (+rating != 0) {
-//   if (i.product_star_rating) {
-//     if (rating === productRating) {
-//       filterProductData.push(i);
-//     }
-//   }
-// }
 
 const styles = StyleSheet.create({
   container: {

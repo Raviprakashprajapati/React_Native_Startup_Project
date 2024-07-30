@@ -14,7 +14,7 @@ import * as Yup from 'yup';
 import {Formik} from 'formik';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import { Switch } from 'react-native-paper';
+import { Divider, Headline, Switch } from 'react-native-paper';
 
 
 GoogleSignin.configure({
@@ -105,17 +105,19 @@ export default function Login({navigation}) {
         validationSchema={loginSchema}
         onSubmit={(values, {resetForm}) => {
           if(values){
-
             saveData(values);
           }
           resetForm();
         }}>
         {({handleChange, handleSubmit, values, errors, touched}) => (
           <View style={styles.container}>
-            <Text style={{color: 'white', fontSize: 20, textAlign: 'center'}}>
+            <View style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",gap:10,marginBottom:14}} >
+            <Image source={{uri:"https://png.pngtree.com/png-vector/20191003/ourmid/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg"}} style={{resizeMode:"cover",height:60,width:60,borderRadius:50}} />
+            <Text style={{color: '#fffff', fontSize: 30, textAlign: 'center',fontWeight:"bold",shadowColor:"white",elevation:10}}>
               Login
-
             </Text>
+            </View>
+            <Divider style={{marginBottom:10}} />
             <TextInput
               placeholder="Enter your name"
               style={styles.input}
@@ -153,14 +155,17 @@ export default function Login({navigation}) {
               ) : null}
               {user && (
                 <View style={styles.userInfo}>
+                  <View style={{display:"flex",flexDirection:"row",backgroundColor:"white",color:"white",alignItems:"center",paddingHorizontal:10,width:'100%',justifyContent:'center',gap:15,borderRadius:30,paddingVertical:5,marginBottom:6}} >
                   <Image style={styles.userImage} source={{uri: user?.photo}} />
-                  <Text style={styles.userName}>{user?.name}</Text>
+                  <Text style={[styles.userName,{color:"black"}]}>{user?.name}</Text>
+                  </View>
                   <Text
                     onPress={handleGoogleLogout}
                     style={{
                       backgroundColor: '#b50909',
                       color: 'white',
                       padding: 6,
+                      borderRadius:10,
                     }}>
                     Logout
                   </Text>
@@ -252,10 +257,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   userImage: {
-    height: 50,
-    width: 50,
+    height: 30,
+    width: 30,
     borderRadius: 25,
-    marginBottom: 10,
+    // marginBottom: 10,
   },
   userName: {
     fontSize: 18,

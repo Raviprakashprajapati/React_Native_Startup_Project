@@ -5,7 +5,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from './component/Home';
 import Details from './component/Details';
 import CartDetail from './component/CartDetail';
-import Login from './component/Login';
+import Login from './component/Login'; 
 import Profile from './component/Profile';
 import MultiStepForm from './component/MultiStepForm';
 import FlatlistProduct from './component/FlatlistProduct';
@@ -18,9 +18,14 @@ import SearchBar from './component/SearchBar';
 import 'react-native-gesture-handler';
 import OfferCard from './component/OfferCard';
 import CategoryProduct from './component/CategoryProduct';
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Layout from './component/Layout';
-import Feather from "react-native-vector-icons/Feather"
+import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from "react-native-vector-icons/AntDesign"
+import UseFormHook from './component/UseFormHook';
+import Detail from './component/Detail';
+import Foundation from "react-native-vector-icons/Foundation";
+
 
 export type RootStackPramList = {
   Home: undefined;
@@ -34,7 +39,7 @@ export type RootStackPramList = {
   Review: {id: string};
   Deal: undefined;
   Search: undefined;
-  Offers: {product:any}
+  Offers: {product: any};
 };
 
 export type RootDrawerPramList = {
@@ -45,6 +50,8 @@ export type RootDrawerPramList = {
   Signup: undefined;
   Category: undefined;
   Layout: undefined;
+  Form: undefined;
+  Detail: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
@@ -91,10 +98,10 @@ function HomeStack() {
         name="Search"
         component={SearchBar}
         options={{headerShown: false}}
-        />
+      />
 
       <Stack.Screen
-        name='Offers'
+        name="Offers"
         component={OfferCard}
         options={{headerShown: false}}
       />
@@ -104,18 +111,19 @@ function HomeStack() {
 
 export default function App() {
   return (
+    
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName="Login"
         screenOptions={({navigation}) => ({
-          headerTitleAlign:"center",
+          headerTitleAlign: 'center',
           headerStyle: {
             backgroundColor: 'black',
           },
-          drawerLabelStyle:{
-            fontSize:17,
-            fontWeight:"bold",
-            textAlign:"left"
+          drawerLabelStyle: {
+            fontSize: 17,
+            fontWeight: 'bold',
+            textAlign: 'left',
           },
           headerTitleStyle: {
             color: 'white',
@@ -138,10 +146,14 @@ export default function App() {
           name="HomeStack"
           component={HomeStack}
           options={{
-            title: `${" "}Home`,
-          
+            title: `${' '}Home`,
             drawerIcon: () => (
-              <FontAwesome name="home" size={25} color={'black'} style={{marginLeft:5}}  />
+              <FontAwesome
+                name="home"
+                size={25}
+                color={'black'}
+                style={{marginLeft: 5}}
+              />
             ),
           }}
         />
@@ -149,9 +161,14 @@ export default function App() {
           name="Profile"
           component={Profile}
           options={{
-            title: `${"  "}Profile`,
+            title: `${'  '}Profile`,
             drawerIcon: () => (
-              <FontAwesome name="user" size={25} color={'black'} style={{marginLeft:5}}  />
+              <FontAwesome
+                name="user"
+                size={25}
+                color={'black'}
+                style={{marginLeft: 5}}
+              />
             ),
           }}
         />
@@ -161,7 +178,7 @@ export default function App() {
           options={{
             title: `Deals`,
             drawerIcon: () => (
-              <FontAwesome6 name="shop" size={25} color={'black'}  />
+              <FontAwesome6 name="shop" size={25} color={'black'} />
             ),
           }}
         />
@@ -170,48 +187,66 @@ export default function App() {
           name="Category"
           component={CategoryProduct}
           options={{
-            title: `${" "}Category`,
+            title: `${' '}Category`,
             drawerIcon: () => (
-              <MaterialIcons name="category" size={25} color={'black'}  />
+              <MaterialIcons name="category" size={25} color={'black'} />
             ),
           }}
         />
-
 
         <Drawer.Screen
           name="Layout"
           component={Layout}
           options={{
-            title: `${" "}Layout`,
+            title: `${' '}Layout`,
             drawerIcon: () => (
-              <Feather name="layout" size={25} color={'black'}  />
+              <Foundation name="layout" size={30} color={'black'} />
+            ),
+          }}
+        />
+
+
+       <Drawer.Screen
+          name="Form"
+          component={UseFormHook}
+          options={{
+            title: `${' '}Form`,
+            drawerIcon: () => (
+              <FontAwesome6 name="file-waveform" size={25} color={'black'} />
+            ),
+          }}
+        />
+
+       <Drawer.Screen
+          name="Detail"
+          component={Detail}
+          options={{
+            title: `${' '}Details`,
+            drawerIcon: () => (
+              <FontAwesome name="th-list" size={25} color={'black'} />
             ),
           }}
         />
 
         <Drawer.Screen
-            name='Login'
-            component={Login}
-            options={{
-              headerShown:false,
-              title:""              
-            }}
-          />
+          name="Login"
+          component={Login}
+          options={{
+            headerShown: false,
+            title: '',
+          }}
+        />
 
-          <Drawer.Screen
-              name='Signup'
-              component={MultiStepForm}
-              options={{
-                headerShown:false,
-                title:""              
-              }}
-          />
-
-          
+        <Drawer.Screen
+          name="Signup"
+          component={MultiStepForm}
+          options={{
+            headerShown: false,
+            title: '',
+          }}
+        />
 
       </Drawer.Navigator>
     </NavigationContainer>
   );
 }
-
-
