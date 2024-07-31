@@ -26,6 +26,7 @@ import UseFormHook from './component/UseFormHook';
 import Detail from './component/Detail';
 import Foundation from "react-native-vector-icons/Foundation";
 import GroupProduct from './component/GroupProduct';
+import CreateProduct from './component/CreateProduct';
 
 
 export type RootStackPramList = {
@@ -54,6 +55,7 @@ export type RootDrawerPramList = {
   Form: undefined;
   Detail: undefined;
   Brand: undefined;
+  AddProduct:undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackPramList>();
@@ -116,7 +118,7 @@ export default function App() {
     
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="Login"
+        initialRouteName="AddProduct"
         screenOptions={({navigation}) => ({
           headerTitleAlign: 'center',
           headerStyle: {
@@ -175,7 +177,7 @@ export default function App() {
             ),
           }}
         />
-        
+
         <Drawer.Screen
           name="Deals"
           component={DealProduct}
@@ -239,6 +241,17 @@ export default function App() {
             title: `${' '}Brand`,
             drawerIcon: () => (
               <Entypo name="select-arrows" size={25} color={'black'} />
+            ),
+          }}
+        />
+
+        <Drawer.Screen
+          name="AddProduct"
+          component={CreateProduct}
+          options={{
+            title: `${' '}Add-Product`,
+            drawerIcon: () => (
+              <MaterialIcons name="library-add" size={25} color={'black'} />
             ),
           }}
         />
