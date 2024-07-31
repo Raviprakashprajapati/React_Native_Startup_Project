@@ -53,6 +53,7 @@ export default function Details({route}: DetailsProps) {
     // .catch((err)=>{
     //   if(err){ console.warn(err) }
     // } )
+
   };
 
   useEffect(() => {
@@ -94,11 +95,13 @@ export default function Details({route}: DetailsProps) {
             marginVertical: 10,
             borderRadius: 20,
             gap: 10,
+            borderColor:"pink",
+            borderWidth:.7
           }}
           onPress={() => setVisible(true)}>
           <FontAwesome6 name="images" size={20} color={'#960b5e'} />
           <Text style={{textAlign: 'center', color: '#960b5e'}}>
-            View the Image
+            View the Images
           </Text>
         </Pressable>
 

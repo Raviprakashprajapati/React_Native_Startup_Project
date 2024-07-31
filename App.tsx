@@ -116,7 +116,7 @@ export default function App() {
     
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="HomeStack"
+        initialRouteName="Login"
         screenOptions={({navigation}) => ({
           headerTitleAlign: 'center',
           headerStyle: {
@@ -159,6 +159,7 @@ export default function App() {
             ),
           }}
         />
+
         <Drawer.Screen
           name="Profile"
           component={Profile}
@@ -174,6 +175,7 @@ export default function App() {
             ),
           }}
         />
+        
         <Drawer.Screen
           name="Deals"
           component={DealProduct}
