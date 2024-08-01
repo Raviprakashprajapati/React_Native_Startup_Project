@@ -113,6 +113,7 @@ export default function Profile({navigation}: ProfileProps) {
             <Icon name="log-out-outline" size={20} color="#fff" />
             <Text style={styles.buttonText}>Logout</Text>
           </TouchableOpacity>
+          
         </View>
       </View>
     );

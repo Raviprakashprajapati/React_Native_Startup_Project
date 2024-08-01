@@ -46,13 +46,13 @@ export default function Details({route}: DetailsProps) {
       url: product.product_photo,
     };
 
-    // Share.open(options)
-    // .then((res)=>{
-    //   console.warn(res)
-    // })
-    // .catch((err)=>{
-    //   if(err){ console.warn(err) }
-    // } )
+    Share.open(options)
+    .then((res)=>{
+      // console.warn(res)
+    })
+    .catch((err)=>{
+      if(err){ console.warn(err) }
+    } )
 
   };
 

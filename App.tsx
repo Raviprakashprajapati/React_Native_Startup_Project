@@ -114,11 +114,11 @@ function HomeStack() {
 }
 
 export default function App() {
+  
   return (
-    
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="AddProduct"
+        initialRouteName="Login"
         screenOptions={({navigation}) => ({
           headerTitleAlign: 'center',
           headerStyle: {
@@ -261,7 +261,8 @@ export default function App() {
           component={Login}
           options={{
             headerShown: false,
-            title: '',
+            title: 'df',
+            drawerItemStyle:{height:0}
           }}
         />
 
@@ -271,6 +272,8 @@ export default function App() {
           options={{
             headerShown: false,
             title: '',
+            drawerItemStyle:{height:0}
+
           }}
         />
 

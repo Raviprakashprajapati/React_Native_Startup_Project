@@ -18,7 +18,6 @@ import Slider from '@react-native-community/slider';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {AirbnbRating} from 'react-native-ratings';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import RNPickerSelect from 'react-native-picker-select';
 import {Picker} from "@react-native-picker/picker"
 
 type SearchProps = NativeStackScreenProps<RootStackPramList, 'Search'>;
@@ -826,7 +825,6 @@ export default function SearchBar({navigation, route}: SearchProps) {
             <Picker
             selectedValue={selectedValue}
             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-            // style={styles.picker}
             >
               <Picker.Item label="Java" value="java" />
               <Picker.Item label="JavaScript" value="javascript" />
